@@ -22,7 +22,6 @@ string Personnage::LectureHTML(string myfile, string pos1, string pos2) //prend 
 				if (line.find(pos2)) break;
 			}
 			
-			
 		}
 		file.close();
 	}
@@ -47,4 +46,9 @@ string Personnage::LectureHTML(string myfile, string pos1, string pos2) //prend 
 	
 
 } 
+
+void Personnage::setRace(string s)
+{
+	choixRace = s;
+}
 

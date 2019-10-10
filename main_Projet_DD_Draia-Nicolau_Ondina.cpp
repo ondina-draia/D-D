@@ -3,6 +3,9 @@
 // Recuperation des informations des fichiers HTML donnes
 
 #include "DD.h"
+#include <gtkmm/main.h>
+#include <gtkmm/window.h>
+
 // using namespace std; deja appelé dans DD.h
 
 int main(int argc, char* argv[])
@@ -29,13 +32,15 @@ int main(int argc, char* argv[])
 	// On va extraire des donnees du fichier contenant les races, deja la description
 	if (chx == 1)
 	{
-		string description;
-		string pos1 = "d38\"><strong><em>Dragonborn.</em></strong>&nbsp;"; //pos1 et pos2 vont donc varier suivant les boucles
+		// on va recuperer dans un fichier toute la description de notre race puis travailler sur ce fichier 
+		string description; // 
+		string pos1 = "fe8c33fe-4d48-47fb-bb5f-cee048076e18\">Dragonborn</h2>"; //pos1 et pos2 vont donc varier suivant les boucles
 		string pos2 = ".</p>"; //biensur, comme cette balise se trouve partout, il faut un code qui lit au fur et a mesure et s'arrete au niveau de cette balise et finit sa boucle la dessus 
 		Personnage p;
 		string file_html = "/home/ondy/Documents/C++/" + nom_html;
 		description = p.LectureHTML(file_html, pos1 ,pos2); //rajouter apres une fonction qui verifie que c'est bien un format de chemin de fichier, mais plus tard 
 		cout << description; //description stocke les informations de la description du personnage
+		p.setRace("Dragonborn");	
 		
 	}
 	
