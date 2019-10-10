@@ -12,7 +12,7 @@ CC=g++
 
 ######################
 # All the object files      
-OBJFILES = $(OBJDIR)/main_Projet_DD_Draia-Nicolau_Ondina.o $(OBJDIR)/Race.o $(OBJDIR)/Personnage.o $(OBJDIR)/Classe.o
+OBJFILES = $(OBJDIR)/main_Projet_DD_Draia-Nicolau_Ondina.o $(OBJDIR)/Race.o $(OBJDIR)/Personnage.o $(OBJDIR)/Classe.o $(OBJDIR)/IntGraph.o 
 
 ###############
 # All the flagss

@@ -3,8 +3,7 @@
 // Recuperation des informations des fichiers HTML donnes
 
 #include "DD.h"
-#include <gtkmm/main.h>
-#include <gtkmm/window.h>
+#include <gtkmm/application.h>
 
 // using namespace std; deja appelé dans DD.h
 
@@ -44,5 +43,12 @@ int main(int argc, char* argv[])
 		
 	}
 	
+	// Initialize gtkmm
+	auto app = Gtk::Application::create(argc, argv);
+	// Create the window
+	Fenetre f;
+	// Start main loop
+	//~ Gtk::Main::run(f.window); grosse merde de ligne
+	app -> run(f.window);
 	return 0;
 }
