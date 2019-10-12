@@ -71,7 +71,7 @@ class Fenetre
 	Gtk::Button button1; //creation de pointeur sur le bouton
 	Gtk::ComboBoxText m_Combo;
 	Gtk::Grid mainGrid;
-	Gtk::Entry m_Entry;
+	//Gtk::Entry m_Entry;
 	//Signal handlers (run when the button are clicked)
 	void on_button_clicked();
 };

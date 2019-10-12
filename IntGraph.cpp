@@ -2,6 +2,7 @@
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/main.h>
 
+
 Fenetre::Fenetre()
 {
 	window.set_title("Creation de personnage");
@@ -28,11 +29,11 @@ Fenetre::Fenetre()
 	//~ button1.show();
 	
 	//zone de texte
-	set_size_request(200, 100);
-	set_title("Gtk::Entry");
+	//set_size_request(200, 100);
+	//set_title("Gtk::Entry");
 
-	add(m_VBox);
-	mainGrid.attach(zoneTexte, 0, 2, 1 ,1);
+	//add(m_VBox);
+	//mainGrid.attach(zoneTexte, 0, 2, 1 ,1);
 	
 }
 

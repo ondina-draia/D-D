@@ -33,8 +33,8 @@ int main(int argc, char* argv[])
 	{
 		// on va recuperer dans un fichier toute la description de notre race puis travailler sur ce fichier 
 		string description; // 
-		string pos1 = "fe8c33fe-4d48-47fb-bb5f-cee048076e18\">Dragonborn</h2>"; //pos1 et pos2 vont donc varier suivant les boucles
-		string pos2 = ".</p>"; //biensur, comme cette balise se trouve partout, il faut un code qui lit au fur et a mesure et s'arrete au niveau de cette balise et finit sa boucle la dessus 
+		string pos1 = "<h2 id=\"Dragonborn\" class=\"compendium-header-banner-heading\" data-content-chunk-id=\"fe8c33fe-4d48-47fb-bb5f-cee048076e18\">Dragonborn</h2>";
+		string pos2 = "Gnome</h2>"; //biensur, comme cette balise se trouve partout, il faut un code qui lit au fur et a mesure et s'arrete au niveau de cette balise et finit sa boucle la dessus 
 		Personnage p;
 		string file_html = "/home/ondy/Documents/C++/" + nom_html;
 		description = p.LectureHTML(file_html, pos1 ,pos2); //rajouter apres une fonction qui verifie que c'est bien un format de chemin de fichier, mais plus tard 
