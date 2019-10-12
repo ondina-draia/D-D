@@ -57,6 +57,7 @@ public:
 	Personnage();
 	string LectureHTML(string, string, string);	/// Lecture simple du fichier HTML
 	string EnleveBalises(string);
+	string LectureRecup(string, string, string);
 	void setRace(string);
 };
 
