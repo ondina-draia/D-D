@@ -38,6 +38,7 @@ int main(int argc, char* argv[])
 		Personnage p;
 		string file_html = "/home/ondy/Documents/C++/" + nom_html;
 		description = p.LectureHTML(file_html, pos1 ,pos2); //rajouter apres une fonction qui verifie que c'est bien un format de chemin de fichier, mais plus tard 
+		description = p.EnleveBalises(description);
 		cout << description; //description stocke les informations de la description du personnage
 		p.setRace("Dragonborn");	
 		

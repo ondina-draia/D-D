@@ -33,7 +33,7 @@ protected:
 
 public:
 	Race();
-	string ExtractDragonBorn(string dataHTML);
+	string getRace(string dataHTML);
 };
 
 
@@ -56,6 +56,7 @@ protected:
 public:
 	Personnage();
 	string LectureHTML(string, string, string);	/// Lecture simple du fichier HTML
+	string EnleveBalises(string);
 	void setRace(string);
 };
 
