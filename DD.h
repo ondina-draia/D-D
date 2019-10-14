@@ -36,19 +36,7 @@ public:
 	string getRace(string dataHTML);
 };
 
-
-class Classe
-{
-	protected:
-		
-	
-	public:
-		Classe();
-		string ExtractDruid(string dataHTML);
-		
-};
-
-class Personnage : public Race, public Classe
+class Personnage
 {
 protected:
 	string choixRace;
@@ -60,6 +48,19 @@ public:
 	string LectureRecup(string, string, string);
 	void setRace(string);
 };
+
+
+class Classe : public Personnage // comme ca il accede au public de Personnage
+{
+	protected:
+		
+	
+	public:
+		Classe();
+		string ExtractDruid(string);
+		
+};
+
 
 
 class Fenetre

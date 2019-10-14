@@ -35,10 +35,10 @@ string Personnage::LectureHTML(string myfile, string pos1, string pos2) //prend 
     taille = int(found1) - int(found2);
     trouve1 = toutfile.substr(found1, abs(taille)); //part de la premiere position jusqu'a la taille de la difference de caracteres entre la position 1 et la 2
     
-
+	return trouve1;
 	//maintenant qu'on a tout, il manque plus qu'a enlever les balises hein? Mais il vaut mieux le faire dans une autre fonction afin d'avoir une fonction plus specialisee
 	
-	return trouve1; //retourne tout avec les balises	
+	//return trouve1; //retourne tout avec les balises	
 } 
 
 string Personnage::LectureRecup(string HTML, string pos1,string pos2) //recupere que ce qui nous interesse
@@ -55,6 +55,7 @@ string Personnage::LectureRecup(string HTML, string pos1,string pos2) //recupere
 string Personnage::EnleveBalises(string HTML) //permet d'enlever les balises d'un string contenant du html et autre
 {
 	string SeqRecherche; // sequence recherchee dans le html
+	string Seq;
 	bool inside = false;
 	for (char c : HTML) {
 		if (c == '>')
@@ -65,13 +66,13 @@ string Personnage::EnleveBalises(string HTML) //permet d'enlever les balises d'u
 			SeqRecherche.push_back(c);
 		}
 	
-	/*for (char c : HTML) {
+	/*for (char c : SeqRecherche) {
 		if (c == '&')
 			inside = true;
 		else if (c == ';')
 			inside = false;
 		else if (inside)
-			SeqRecherche.push_back(c);
+			Seq.push_back(c);
 		
 	}*/
 	return SeqRecherche;
