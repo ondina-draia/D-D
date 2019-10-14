@@ -46,6 +46,7 @@ public:
 	string LectureHTML(string, string, string);	/// Lecture simple du fichier HTML
 	string EnleveBalises(string);
 	string LectureRecup(string, string, string);
+	string ExtractDragonborn();
 	void setRace(string);
 };
 
@@ -57,7 +58,7 @@ class Classe : public Personnage // comme ca il accede au public de Personnage
 	
 	public:
 		Classe();
-		string ExtractDruid(string);
+		string ExtractDruid();
 		
 };
 

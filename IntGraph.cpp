@@ -22,6 +22,12 @@ Fenetre::Fenetre()
 	m_Combo.set_active(0);
 	mainGrid.attach(m_Combo, 0, 1, 1, 1); //definit le positionnement de la combo box
 	
+	//Combo classes
+	m_Combo.append("Druid");
+	m_Combo.append("Warlock");
+	m_Combo.set_active(0);
+	mainGrid.add(m_Combo);
+	
 	mainGrid.show_all();
 	window.add(mainGrid);
 	window.show_all_children();

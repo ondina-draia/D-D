@@ -65,19 +65,16 @@ string Personnage::EnleveBalises(string HTML) //permet d'enlever les balises d'u
 		else if (inside)
 			SeqRecherche.push_back(c);
 		}
-	
-	/*for (char c : SeqRecherche) {
-		if (c == '&')
-			inside = true;
-		else if (c == ';')
-			inside = false;
-		else if (inside)
-			Seq.push_back(c);
-		
-	}*/
 	return SeqRecherche;
 }
 
+string Personnage::ExtractDragonborn()
+{
+	string file_html_Races = "/home/ondy/Documents/C++/Races.html";
+	string TextRace = LectureHTML(file_html_Races, "<h2 id=\"Dragonborn\" class=\"compendium-header-banner-heading\" data-content-chunk-id=\"fe8c33fe-4d48-47fb-bb5f-cee048076e18\">Dragonborn</h2>", "Gnome</h2>");
+	TextRace = EnleveBalises(TextRace);
+	return TextRace;
+}
 
 void Personnage::setRace(string s)
 {

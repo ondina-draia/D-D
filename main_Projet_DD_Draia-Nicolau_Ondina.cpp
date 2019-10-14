@@ -9,53 +9,22 @@
 
 int main(int argc, char* argv[])
 {	
-	string nom_html; //declaration du string qui va accueillir le chemin du fichier html qu'on donnera
-	cout << "Comment s'appelle votre fichier contenant les donnes des races? " << endl; //ne pas oublier endl
-	cin >> nom_html; // recuperation du chemin du fichier html
-	
-	//Le on recupere des infos sur le personnage
-	// perso, j'ai Dragonborn et Rock Gnome en tant que Races
-	int chx; //chx pour choix
-	cout <<  "Races disponibles: Dragonborn & Rock Gnome. Pour Dragonborn, écrire 1, pour Rock Gnome, écrire 2" << endl;
-	cin >> chx;
-	if (chx == 1)
-	{
-		cout << "Vous avez choisi Dragonborn \n"  ;
-	}
-	else if (chx == 2)
-	{
-		cout << "Vous avez choisi Rock Gnome \n" ; //Donc 1 == Dragonborn et 2 == Rock Gnome, c'est simple hein?
-	}
-	
-	// On va donc creer notre personnage en commencant par sa description 
-	// On va extraire des donnees du fichier contenant les races, deja la description
-	if (chx == 1)
-	{
-		// on va recuperer dans un fichier toute la description de notre race puis travailler sur ce fichier 
-		string description; 
-		string selection;
-		string pos1 = "<h2 id=\"Dragonborn\" class=\"compendium-header-banner-heading\" data-content-chunk-id=\"fe8c33fe-4d48-47fb-bb5f-cee048076e18\">Dragonborn</h2>";
-		string pos2 = "Gnome</h2>"; //biensur, comme cette balise se trouve partout, il faut un code qui lit au fur et a mesure et s'arrete au niveau de cette balise et finit sa boucle la dessus 
-		Personnage p;
-		string file_html = "/home/ondy/Documents/C++/" + nom_html;
-		description = p.LectureHTML(file_html, pos1 ,pos2); //rajouter apres une fonction qui verifie que c'est bien un format de chemin de fichier, mais plus tard 
-		//selection = p.LectureRecup(description, pos1, pos2);
-		selection = p.EnleveBalises(description);
-		//cout << selection; //description stocke les informations de la description du personnage
-		p.setRace("Dragonborn");	
+	Personnage p;
+	string DesDragonborn = p.ExtractDragonborn();
+	cout << DesDragonborn;
+	p.setRace("Dragonborn");	
 		
-		Classe c;
-		string DesDruid = c.ExtractDruid(file_html);
-		cout << DesDruid;
+	//Recuperation donnees classes (druid et warlock)
+	Classe c;
+	string DesDruid = c.ExtractDruid();
+	cout << DesDruid;
 		
-	}
-	
 	// Initialize gtkmm
 	auto app = Gtk::Application::create(argc, argv);
 	// Create the window
 	Fenetre f;
 	// Start main loop
-	//~ Gtk::Main::run(f.window); grosse merde de ligne
+	//~ Gtk::Main::run(f.window); 
 	app -> run(f.window);
 	return 0;
 }
