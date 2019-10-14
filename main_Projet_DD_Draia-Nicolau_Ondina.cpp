@@ -11,13 +11,11 @@ int main(int argc, char* argv[])
 {	
 	Personnage p;
 	string DesDragonborn = p.ExtractDragonborn();
-	cout << DesDragonborn;
 	p.setRace("Dragonborn");	
 		
 	//Recuperation donnees classes (druid et warlock)
 	Classe c;
 	string DesDruid = c.ExtractDruid();
-	cout << DesDruid;
 		
 	// Initialize gtkmm
 	auto app = Gtk::Application::create(argc, argv);
