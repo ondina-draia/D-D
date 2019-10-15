@@ -1,5 +1,6 @@
 #ifndef DD
 #define DD
+#pragma once
 
 #include <string>
 #include <map>
@@ -27,6 +28,9 @@ using namespace std;
 class Personnage;
 class Race;
 class Classe;
+class Fenetre;
+class win_fille;
+//class AboutWindow;
 
 class Race
 {
@@ -63,6 +67,19 @@ class Classe : public Personnage // comme ca il accede au public de Personnage
 		
 };
 
+class win_fille : public Gtk::Window
+{
+public:
+  win_fille();
+  virtual ~win_fille();
+
+protected:
+  //Signal handlers:
+  void on_button_clicked();
+
+  //Child widgets:
+  Gtk::Button button1;
+};
 
 
 class Fenetre
@@ -74,23 +91,44 @@ class Fenetre
 	
 	protected:
 	// Child widgets:
-	Gtk::Button button1; //creation de pointeur sur le bouton
 	Gtk::ComboBoxText m_Combo1, m_Combo2, m_Combo3, m_Combo4, m_Combo5;
 	Gtk::Grid mainGrid;
 	Gtk::ComboBoxText m_Combo;
+	Gtk::Button button1;
+	//Gtk::MessageDialog::set_image(image);
+    //Gtk::Label lbl_;
+    //Gtk::Box box_;
+    //Gtk::AboutWindow* aboutw_;
 	//Gtk::Entry m_Entry;
 	//Signal handlers (run when the button are clicked)
 	void on_button_clicked();
 	void on_combo_changed();
 	void on_entry_activate();
+	//void aboutWinClose();
 	bool on_entry_focus_out_event(GdkEventFocus* event);
 
 	//Signal connection:
 	sigc::connection m_ConnectionFocusOut;
+	
+	//On créer la fenêtre fille ici !!!
+	win_fille my_win_fille;
 
 	
 };
 
 
+
+
+
+/*class AboutWindow : public Fenetre
+{
+public:
+	Gtk::Window aboutw_;
+    AboutWindow();
+    ~AboutWindow();
+
+protected:
+    Gtk::Label lbl_;
+}; */
 
 #endif
