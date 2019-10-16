@@ -76,8 +76,9 @@ string Personnage::ExtractDragonborn()
 	return TextRace;
 }
 
-void Personnage::setRace(string s)
+string Personnage::AbilityScoreCalc()
 {
-	choixRace = s;
+	string Strength, Dexterity, Ability, Constitution, Intelligence, Wisdom, Charisma;
+	
+	
 }
-

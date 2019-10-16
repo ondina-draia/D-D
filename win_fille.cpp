@@ -3,7 +3,7 @@
 win_fille::win_fille()
 {
  //Fenêtre avec un seul bouton "Fermer"
-  button1.add_pixlabel("giscardsex.jpg", "Fermer");
+  button1.add_pixlabel("DD.png", "Fermer");
 
   set_title("win_fille!");
   set_border_width(10);

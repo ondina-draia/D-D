@@ -11,7 +11,6 @@ int main(int argc, char* argv[])
 {	
 	Personnage p;
 	string DesDragonborn = p.ExtractDragonborn();
-	p.setRace("Dragonborn");	
 		
 	//Recuperation donnees classes (druid et warlock)
 	Classe c;

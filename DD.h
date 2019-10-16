@@ -44,15 +44,15 @@ public:
 class Personnage
 {
 protected:
-	string choixRace;
-
+	
+	
 public:
 	Personnage();
 	string LectureHTML(string, string, string);	/// Lecture simple du fichier HTML
 	string EnleveBalises(string);
 	string LectureRecup(string, string, string);
 	string ExtractDragonborn();
-	void setRace(string);
+	string AbilityScoreCalc();
 };
 
 
@@ -95,16 +95,9 @@ class Fenetre
 	Gtk::Grid mainGrid;
 	Gtk::ComboBoxText m_Combo;
 	Gtk::Button button1;
-	//Gtk::MessageDialog::set_image(image);
-    //Gtk::Label lbl_;
-    //Gtk::Box box_;
-    //Gtk::AboutWindow* aboutw_;
-	//Gtk::Entry m_Entry;
-	//Signal handlers (run when the button are clicked)
 	void on_button_clicked();
 	void on_combo_changed();
 	void on_entry_activate();
-	//void aboutWinClose();
 	bool on_entry_focus_out_event(GdkEventFocus* event);
 
 	//Signal connection:
@@ -116,19 +109,5 @@ class Fenetre
 	
 };
 
-
-
-
-
-/*class AboutWindow : public Fenetre
-{
-public:
-	Gtk::Window aboutw_;
-    AboutWindow();
-    ~AboutWindow();
-
-protected:
-    Gtk::Label lbl_;
-}; */
 
 #endif
