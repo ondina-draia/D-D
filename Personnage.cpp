@@ -2,6 +2,8 @@
 
 Personnage::Personnage()
 {
+	// creation du personnage avec les differentes variables qu'il faut stocker grace au .h
+	// recupere donnes de la fenetre et du html
 
 }
 
@@ -64,21 +66,57 @@ string Personnage::EnleveBalises(string HTML) //permet d'enlever les balises d'u
 			inside = false;
 		else if (inside)
 			SeqRecherche.push_back(c);
-		}
+	}
 	return SeqRecherche;
 }
 
-string Personnage::ExtractDragonborn()
+
+vector<int> Personnage::AbilityScoreCalc()
+/* Information:
+ * You generate your character’s six ability scores randomly. Roll four 6-sided dice and record the total of the highest three dice on a piece of scratch paper. Do this five more times,
+ *  so that you have six numbers. If you want to save time or don’t like the idea of randomly determining ability scores, you can use the following scores instead: 15, 14, 13, 12, 10, 8.
+	Now take your six numbers and write each number beside one of your character’s six abilities to assign scores to Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma.
+	Afterward, make any changes to your ability scores as a result of your race choice. */
 {
-	string file_html_Races = "/home/ondy/Documents/C++/Races.html";
-	string TextRace = LectureHTML(file_html_Races, "<h2 id=\"Dragonborn\" class=\"compendium-header-banner-heading\" data-content-chunk-id=\"fe8c33fe-4d48-47fb-bb5f-cee048076e18\">Dragonborn</h2>", "Gnome</h2>");
-	TextRace = EnleveBalises(TextRace);
-	return TextRace;
+	//double Strength, Dexterity, Ability, Constitution, Intelligence, Wisdom, Charisma;
+	int i = 0;
+	vector <int> AbilityScore; //stocke les sommes des jets
+	//vector <int> NbTir; //stocke les 4 tirs des 6 rounds de tirs
+	//srand(time(0)); //initialise la vitesse du random	
+	/*for (int j = 0; j<7; j++)
+	{
+		//on doit faire ca 5 fois
+		while(i<4) //permet de tirer au hasard 4 nombres et les stocker dans un tableau NbTir 
+		{
+			NbTir.push_back(rand() % 6 + 1);
+			i++;
+		}
+		sort(NbTir.begin(), NbTir.end()); 
+		vector<int> Nb = vector<int>(NbTir.begin() +1, NbTir.end()); //Vecteur contenant uniquement les 3 meilleurs tirs
+		int sum = accumulate(Nb.begin(),Nb.end(), 0); //accumulate(first_index, last_index, initial value of sum);
+		AbilityScore.push_back(sum);
+	}*/
+	while(i<6)
+	{
+		AbilityScore.push_back(rand() % 18 + 3);
+		i ++;
+	}
+	// si on a la somme de 3 jets de des de 6, minimum c'est 3*1 et le maximum c'est 3*6= 18
+	return AbilityScore;
 }
 
-string Personnage::AbilityScoreCalc()
+void Personnage::print(std::vector<int> const &input) //print vector method 
 {
-	string Strength, Dexterity, Ability, Constitution, Intelligence, Wisdom, Charisma;
-	
-	
+	for (int i = 0; i < input.size(); i++) {
+		std::cout << input.at(i) << ' ';
+	}
 }
+		
+
+	
+		
+		
+	
+	
+		
+
