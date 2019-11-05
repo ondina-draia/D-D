@@ -32,12 +32,11 @@ make
 
 # Fonctionnement de l'application
 
-### Il est important de remplir tous les encadrés et faire ses choix d'armure / niveau / sexe, etc dans les menus deroulants afin d'avoir ### une fiche personnage complete
+### Il est important de remplir tous les encadrés et faire ses choix d'armure / niveau / sexe, etc dans les menus deroulants afin d'avoir une fiche personnage complete
 
-### Au milieu a gauche, il existe un menu deroulant avec les scores d'abilite possibles pour le personnage cree. Ce sont des scores tires ### au hasard suivant les regles du jeu.
+### Au milieu a gauche, il existe un menu deroulant avec les scores d'abilite possibles pour le personnage cree. Ce sont des scores tires au hasard suivant les regles du jeu.
 
-### Ca peut etre amusant de jouer avec le choix de sexe, race et classe etant donne que l'image du personnage afiche dans la fenetre 
-### d'affichage du personnage changera en fonction de ces 3 criteres
+### Ca peut etre amusant de jouer avec le choix de sexe, race et classe etant donne que l'image du personnage afiche dans la fenetre d'affichage du personnage changera en fonction de ces 3 criteres
 
 
 # Presentation des fichiers composant l'application
@@ -50,7 +49,7 @@ Le fichier main de l'application. Il permet d'appeller les differentes classes e
 
 Contient des fonctions qui extraient des informations de Races.html 
 
-#Personnage.cpp
+# Personnage.cpp
 
 Contient enormement de fonctions: la classe personnage contient:
 - un extracteur HTML (Lecture Html)
@@ -62,11 +61,11 @@ Contient enormement de fonctions: la classe personnage contient:
 - une fonction qui split des strings 
 - une fonction de recuperation d'armes de classes
 
-#Classe.cpp
+# Classe.cpp
 
 Contient des fonctions qui recuperent des informations relatives aux classes
 
-#IntGraph.cpp
+# IntGraph.cpp
 
 Le fichier qui contient la classe Fenetre qui gere la fenetre mere de l'application.
 - classe Fenetre avec tous les boutons, combobox et labels
@@ -75,12 +74,12 @@ Le fichier qui contient la classe Fenetre qui gere la fenetre mere de l'applicat
 - une fonction ajout_description qui envoie la description d'une classe vers la fenetre fille
 - une fonction qui set les ability points possibles dans une combobox de la fenetre mere
 
-#win_fille
+# win_fille
 
 - gere la classe win_fille qui est la fenetre fille ou est affichee la feuille de personnage
 - elle contient les conteneurs labels et les images qui sont definis dans la fenetre fille et qui sont remplis par la fenetre mere lors de la creation de celle ci
 - une fonction on button clicked qui permet de fermer la fenetre quand on clicke sur le bouton fermer
 
-#DD.h
+# DD.h
 
-- fichier qui definit tous les attributs et methodes de toutes les classes presentees
+- fichier qui definit tous les attributs et methodes de toutes les classes presentees 
