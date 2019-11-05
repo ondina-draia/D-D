@@ -99,13 +99,24 @@ Fenetre::Fenetre() : m_Combo(true /* a une entree saisie */), Age(true), Str(tru
 	
 	//Combo classes
 	m_Combo4.append("Armure ");
-	m_Combo4.append("Armure");
+	m_Combo4.append("Light armor");
+	m_Combo4.append("Medium armor");
+	m_Combo4.append("Shield");
 	m_Combo4.set_active(0);
 	mainGrid.attach(m_Combo4, 3, 4, 1 ,1);
 	
 	//Combo classes
-	m_Combo5.append("Equipement");
-	m_Combo5.append("Equipement");
+	//Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears
+	m_Combo5.append("Armes");
+	m_Combo5.append("Cypres stick");
+	m_Combo5.append("Dart");
+	m_Combo5.append("Louche");
+	m_Combo5.append("Keyblade");
+	m_Combo5.append("Wabbajack");
+	m_Combo5.append("Scimitar");
+	m_Combo5.append("Sickle");
+	m_Combo5.append("Watergun");
+	m_Combo5.append("Woodensword");
 	m_Combo5.set_active(0);
 	mainGrid.attach(m_Combo5, 4, 4, 1 ,1);
 	
@@ -214,6 +225,8 @@ void Fenetre::on_button_clicked() {
     //my_win_fille.set_modal(true);  //pour que la fenêtre fille soit modale, d'autres fenetres ne sont pas utilisables quand celle la est ouverte 
     my_win_fille.show();  //affiche la fenêtre fille
     my_win_fille.resize(800,800);
+    my_win_fille.set_title("In nomine Dei nostri Satanas Luciferi excelsi!"); //c'est pour le style
+    my_win_fille.set_position(Gtk::WIN_POS_CENTER);
     
 	//nom du personnage
 	string name = m_Combo.get_active_text();
@@ -226,6 +239,14 @@ void Fenetre::on_button_clicked() {
 	//alignement
 	string alignement = Alignement.get_active_text();
 	my_win_fille.ali.set_markup("Alignement:  " + alignement);
+	
+	//arme
+	string arme = m_Combo5.get_active_text();
+	my_win_fille.arme.set_markup("Arme :" + arme);
+		
+	//armure
+	string armure = m_Combo4.get_active_text();
+	my_win_fille.armure.set_markup("Armure :" + armure);
 	
 	//sexe du personnage
 	string sexe = m_Combo2.get_active_text();
@@ -261,6 +282,7 @@ void Fenetre::on_button_clicked() {
     
     string chr = Chr.get_active_text();
     my_win_fille.cr.set_markup("Charisme :" + chr);
+    
     
     /**********************************************************************************************************/
     
@@ -368,6 +390,7 @@ void Fenetre::ajout_description(string des)
 	my_win_fille.description.set_markup(des);
 }
 
+/**************************************************************************************/
 
 void Fenetre::set_ability_points(std::vector<int> const &input)
 {

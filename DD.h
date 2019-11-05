@@ -15,6 +15,7 @@
 #include <gtkmm.h>
 #include <chrono>
 #include <thread>
+#include <stdio.h>
 #include <gtkmm/window.h>
 #include <gtkmm/button.h>
 #include <iostream>
@@ -46,14 +47,7 @@ class win_fille;
 class Personnage
 {
 protected:
-	string nom;
-	bool sexe;
-	int age;
-	string classe;
-	int niveau;
-	string alignement;
-	string race;
-	double pointsExp;
+	
 	
 public:
 	Personnage(); //constructeur 
@@ -62,6 +56,9 @@ public:
 	string LectureRecup(string, string, string);
 	vector<int> AbilityScoreCalc();
 	void print(std::vector<int> const &input);
+	void printstring(std::vector<string> const &input);
+	vector<std::string> ExtractWeaponDruid();
+	void SplitString(std::string const &str, const char delim, std::vector<std::string> &out);
 };
 
 /****************************************************************************************************************************************************************/
@@ -100,7 +97,7 @@ class win_fille : public Gtk::Window, public Personnage
 	Gtk::Image perso;
 	Gtk::Grid Grid;
 	Gtk::Button button1, button2;
-	Gtk::Label MonPerso, nom, level, sexe, race, classe, age, description, ali, s, d, i, w, cr, co;
+	Gtk::Label MonPerso, nom, level, sexe, race, classe, age, description, ali, s, d, i, w, cr, co, arme, armure;
 
 	protected:
 	//Signal handlers:

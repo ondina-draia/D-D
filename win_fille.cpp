@@ -19,9 +19,17 @@ win_fille::win_fille()
 	sexe.set_markup("inconnu");
 	Grid.attach(sexe, 4, 1, 2, 1);
 	
+	//armure
+	armure.set_markup("Armure");
+	Grid.attach(armure, 0, 2, 2, 1);
+	
 	//Alignement
 	ali.set_markup("alignement");
 	Grid.attach(ali, 2, 2, 2, 1);
+	
+	//Arme
+	arme.set_markup("arme");
+	Grid.attach(arme, 4, 2, 2, 1);
 	
 	//Race
 	race.set_markup("Pas de race");

@@ -4,7 +4,6 @@ Personnage::Personnage()
 {
 	// creation du personnage avec les differentes variables qu'il faut stocker grace au .h
 	// recupere donnes de la fenetre et du html
-
 }
 
 string Personnage::LectureHTML(string myfile, string pos1, string pos2) //prend en argument un chemin vers un fichier de type string
@@ -111,12 +110,38 @@ void Personnage::print(std::vector<int> const &input) //print vector method
 		std::cout << input.at(i) << ' ';
 	}
 }
-		
 
-	
+void Personnage::printstring(std::vector<string> const &input) //print vector method 
+{
+	for (int i = 0; i < input.size(); i++) {
+		std::cout << input.at(i) << ' ';
+	}
+}
+
+void Personnage::SplitString(std::string const &str, const char delim, std::vector<std::string> &out) //a ne pas sortir du contexte
+{
+	size_t start;
+	size_t end = 0;
+	while ((start = str.find_first_not_of(delim, end)) != std::string::npos)
+	{
+		end = str.find(delim, start);
+		out.push_back(str.substr(start, end - start));
+	}
+}
 		
+vector<string> Personnage::ExtractWeaponDruid() //extrait les armes du druide
+{
+	string file_html_Weapons = "Classes.html";
+	string TextWeapon = LectureHTML(file_html_Weapons, "<span class=\"Serif-Character-Style_Bold-Serif\" data-content-chunk-id=\"5ce62a61-aefe-4821-9aef-68bf73ea4798\">Weapons: </span>" , "<p class=\"Core-Styles_Core-Hanging-Last\" data-content-chunk-id=\"c7f5e114-a04a-4075-b954-aef372218759\">");
+	TextWeapon = EnleveBalises(TextWeapon);
+	const char delim = ',';
+	vector<std::string> WeaponDruid;
+	SplitString(TextWeapon, delim , WeaponDruid);
+	return WeaponDruid;
+}		
 		
 	
+
 	
 		
 
