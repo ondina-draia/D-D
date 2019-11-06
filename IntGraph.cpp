@@ -284,17 +284,22 @@ void Fenetre::on_button_clicked() {
     my_win_fille.cr.set_markup("Charisme :" + chr);
     
     
+    
     /**********************************************************************************************************/
     
-    int r = Races.get_active_row_number();
+    int r = Races.get_active_row_number(); // 1: rock gnome 2: dragonborn
     int c = m_Combo1.get_active_row_number(); // 1: druid 2: warlock
     int s = m_Combo2.get_active_row_number(); //sexe, 1:f 2:h 3:les deux 4:nonbin
+    int surprise = m_Combo.get_active_row_number(); 
     
     
     // Affichage de l'image du perso par rapport a la Race sur la fenetre fille + controle de l'age
     int a = atoi(age.c_str()); //transformation du string de l'age en int
     if (r == 1) //race rock gnome
     {
+		//ajoute description du rock gnome
+		string DesRockGnome = ExtractRockGnome(); 
+		ajout_description(DesRockGnome);
 		if (a > 600)
 		{
 			my_win_fille.age.set_markup("600 (MAX)");
@@ -329,6 +334,9 @@ void Fenetre::on_button_clicked() {
 	
 	else if (r == 2)
 	{
+		//ajoute description du dragonborn
+		string DesDragonborn = ExtractDragonborn(); 
+		ajout_description(DesDragonborn);
 		if (a > 120)
 		{
 			my_win_fille.age.set_markup("120 (MAX)");
@@ -347,6 +355,13 @@ void Fenetre::on_button_clicked() {
 			{
 				my_win_fille.perso.set("dragonborn_femelle_druid.jpg");
 			}
+			else if (s == 3) //les deux
+			{
+				if(surprise == 2)
+				{
+					my_win_fille.perso.set("surpise.jpg");
+				}
+			}
 		}
 		else if (c == 2) //classe warlock
 		{
@@ -363,21 +378,32 @@ void Fenetre::on_button_clicked() {
 	
 }
 
+void Fenetre::set_ability_points(std::vector<int> const &input)
+{
+	//recupere vecteur, le set dans les combobox des ability points
+	for (int i = 0; i < input.size(); i++) {
+		string tmp(to_string(input[i]));
+		Vals.append(tmp);
+	}	
+	//, enleve a chaque fois qu'une valeur est chosie, cette valeur des autres combobox
+	
+}
+
 /* Ont servi uniquement pour des tests d'affichage */
 
-void Fenetre::on_combo_changed()
+void Fenetre::on_combo_changed() //afiche dans le terminal ce qu'il se passe dans m_Combo combobox
 {
   std::cout << "on_combo_changed(): Row=" << m_Combo.get_active_row_number()
     << ", Text=" << m_Combo.get_active_text() << std::endl;
 }
 
-void Fenetre::on_entry_activate()
+void Fenetre::on_entry_activate() //afiche dans le terminal ce qu'il se passe dans m_combo lorsqu'elle est activee
 {
   std::cout << "on_entry_activate(): Row=" << m_Combo.get_active_row_number()
     << ", Text=" << m_Combo.get_active_text() << std::endl;
 }
 
-bool Fenetre::on_entry_focus_out_event(GdkEventFocus* /* event */)
+bool Fenetre::on_entry_focus_out_event(GdkEventFocus* /* event */) //recupere et affiche ce qu'il se apsse
 {
   std::cout << "on_entry_focus_out_event(): Row=" << m_Combo.get_active_row_number()
     << ", Text=" << m_Combo.get_active_text() << std::endl;
@@ -392,13 +418,4 @@ void Fenetre::ajout_description(string des)
 
 /**************************************************************************************/
 
-void Fenetre::set_ability_points(std::vector<int> const &input)
-{
-	//recupere vecteur, le set dans les combobox des ability points
-	for (int i = 0; i < input.size(); i++) {
-		string tmp(to_string(input[i]));
-		Vals.append(tmp);
-	}	
-	//, enleve a chaque fois qu'une valeur est chosie, cette valeur des autres combobox
-	
-}
+
