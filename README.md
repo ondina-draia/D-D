@@ -19,8 +19,7 @@ sudo apt-get install g++
 sudo apt-get install libgtkmm-3.0-dev 
 ```
 
-## 4) Lancer la commande make afin de lancer le makefile qui va permettre de compiler l'application, dans le dossier ou se trouvent les
-## fichiers de l'application 
+## 4) Lancer la commande make afin de lancer le makefile qui va permettre de compiler l'application, dans le dossier ou se trouvent les fichiers de l'application 
 ```
 make
 ```
@@ -38,6 +37,7 @@ make
 
 ### Ca peut etre amusant de jouer avec le choix de sexe, race et classe etant donne que l'image du personnage afiche dans la fenetre d'affichage du personnage changera en fonction de ces 3 criteres
 
+##### Il existe un easter egg dans le code.
 
 # Presentation des fichiers composant l'application
 
@@ -83,3 +83,8 @@ Le fichier qui contient la classe Fenetre qui gere la fenetre mere de l'applicat
 #   DD.h
 
 - fichier qui definit tous les attributs et methodes de toutes les classes presentees 
+
+
+
+
+##### EG: Homme politique des deux a la peau ecailleuse qui a surement des savoirs druidiques pour se maintenir autant en vie
