@@ -95,4 +95,4 @@ Le fichier qui contient la classe Fenetre qui gere la fenetre mere de l'applicat
 ### ********************************************************************************************************************
 
 
-##### EG: Homme politique des deux a la peau ecailleuse qui a surement des savoirs druidiques pour se maintenir autant en vie
+##### EG: Creature a la peau ecailleuse qui a surement des savoirs druidiques en plus de son precieux pour se maintenir autant en vie
